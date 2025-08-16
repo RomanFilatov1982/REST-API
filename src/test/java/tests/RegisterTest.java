@@ -10,7 +10,7 @@ import static org.hamcrest.Matchers.is;
 public class RegisterTest extends TestBase{
 
     @Test
-    void successfulRegisterTest() {
+    void successfulRegistrationTest() {
         String registrationData = "{\"email\":\"eve.holt@reqres.in\",\"password\":\"pistol\"}";
 
         given()
@@ -18,9 +18,9 @@ public class RegisterTest extends TestBase{
                 .header("x-api-key", apiKey)
                 .contentType(JSON)
                 .log().uri()
-                .when()
+        .when()
                 .post("/register")
-                .then()
+        .then()
                 .log().status()
                 .log().body()
                 .statusCode(200)
@@ -29,16 +29,16 @@ public class RegisterTest extends TestBase{
     }
 
     @Test
-    void unsuccessfulRegisterWithoutPasswordTest() {
-        String registrationData = "{\"email\":\"holt@reqres.in\"}";
+    void unsuccessfulRegistrationWithoutPasswordTest() {
+        String registrationData = "{\"email\":\"eve.holt@reqres.in\"}";
         given()
                 .body(registrationData)
                 .header("x-api-key", apiKey)
                 .contentType(JSON)
                 .log().uri()
-                .when()
+        .when()
                 .post("/register")
-                .then()
+        .then()
                 .log().status()
                 .log().body()
                 .statusCode(400)
@@ -46,16 +46,16 @@ public class RegisterTest extends TestBase{
     }
 
     @Test
-    void unsuccessfulRegisterWithIncorrectEmailTest() {
+    void unsuccessfulRegistrationWithIncorrectEmailTest() {
         String registrationData = "{\"email\":\"holt@reqres.in\",\"password\":\"pistol\"}";
         given()
                 .body(registrationData)
                 .header("x-api-key", apiKey)
                 .contentType(JSON)
                 .log().uri()
-                .when()
+        .when()
                 .post("/register")
-                .then()
+        .then()
                 .log().status()
                 .log().body()
                 .statusCode(400)
@@ -63,16 +63,16 @@ public class RegisterTest extends TestBase{
     }
 
     @Test
-    void unsuccessfulRegisterWithoutEmailAndPasswordTest() {
+    void unsuccessfulRegistrationWithoutEmailAndPasswordTest() {
         String registrationData = "{}";
         given()
                 .body(registrationData)
                 .header("x-api-key", apiKey)
                 .contentType(JSON)
                 .log().uri()
-                .when()
+        .when()
                 .post("/register")
-                .then()
+        .then()
                 .log().status()
                 .log().body()
                 .statusCode(400)
