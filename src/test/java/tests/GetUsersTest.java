@@ -7,20 +7,20 @@ import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
 import static org.hamcrest.Matchers.is;
 
-public class GetUsersTest extends TestBase{
+public class GetUsersTest extends TestBase {
     @Test
     void successfulSingleUserTest() {
 
         String supportUrl = "https://contentcaddy.io?utm_source=reqres&utm_medium=json&utm_campaign=referral";
-        String  supportText = "Tired of writing endless social media content? Let Content Caddy generate it for you.";
+        String supportText = "Tired of writing endless social media content? Let Content Caddy generate it for you.";
 
         given()
                 .header("x-api-key", apiKey)
                 .contentType(JSON)
                 .log().uri()
-        .when()
+                .when()
                 .get("/users/2")
-        .then()
+                .then()
                 .log().status()
                 .log().body()
                 .statusCode(200)

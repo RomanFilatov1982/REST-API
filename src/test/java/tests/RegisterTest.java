@@ -7,7 +7,7 @@ import static io.restassured.http.ContentType.JSON;
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.Matchers.is;
 
-public class RegisterTest extends TestBase{
+public class RegisterTest extends TestBase {
 
     @Test
     void successfulRegistrationTest() {
@@ -18,9 +18,9 @@ public class RegisterTest extends TestBase{
                 .header("x-api-key", apiKey)
                 .contentType(JSON)
                 .log().uri()
-        .when()
+                .when()
                 .post("/register")
-        .then()
+                .then()
                 .log().status()
                 .log().body()
                 .statusCode(200)
@@ -36,9 +36,9 @@ public class RegisterTest extends TestBase{
                 .header("x-api-key", apiKey)
                 .contentType(JSON)
                 .log().uri()
-        .when()
+                .when()
                 .post("/register")
-        .then()
+                .then()
                 .log().status()
                 .log().body()
                 .statusCode(400)
@@ -53,9 +53,9 @@ public class RegisterTest extends TestBase{
                 .header("x-api-key", apiKey)
                 .contentType(JSON)
                 .log().uri()
-        .when()
+                .when()
                 .post("/register")
-        .then()
+                .then()
                 .log().status()
                 .log().body()
                 .statusCode(400)
@@ -70,9 +70,9 @@ public class RegisterTest extends TestBase{
                 .header("x-api-key", apiKey)
                 .contentType(JSON)
                 .log().uri()
-        .when()
+                .when()
                 .post("/register")
-        .then()
+                .then()
                 .log().status()
                 .log().body()
                 .statusCode(400)

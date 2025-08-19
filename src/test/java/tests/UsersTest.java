@@ -7,7 +7,7 @@ import static io.restassured.http.ContentType.JSON;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 
-public class UsersTest extends TestBase{
+public class UsersTest extends TestBase {
 
     @Test
     void successfulCreateNewUserTest() {
@@ -18,9 +18,9 @@ public class UsersTest extends TestBase{
                 .header("x-api-key", apiKey)
                 .contentType(JSON)
                 .log().uri()
-        .when()
+                .when()
                 .post("/users")
-        .then()
+                .then()
                 .log().status()
                 .log().body()
                 .statusCode(201)
